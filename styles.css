@@ -1,0 +1,543 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --card-font-size: auto;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #121212;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --card-font-size: 12px;
+    }
+}
+
+
+body {
+    background: var(--bg-color);
+    color: white;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+    padding-top: max(10vh, 80px);
+}
+
+header, main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    border: 5px solid navy;
+    border-radius: 20px;
+    background: cornflowerblue;
+    padding: 18px;
+    text-shadow: 0 5px 5px rgb(0, 60, 150);
+    box-shadow: 5px 10px 20px rgb(0, 0, 225);
+}
+
+h2 {
+    color: dodgerblue;
+    text-align: center;
+    text-shadow: 3px 3px 5px dodgerblue;
+}
+
+hr {
+    width: 100%;
+    background: dodgerblue;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-shadow: 3px 3px 5px dodgerblue;
+}
+
+
+/* Button */
+button, a {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+button:focus-visible {
+    outline: 2px solid #5c6ac4;
+    outline-offset: 2px;
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 500;
+    width: 100%;
+    height: 5vh;
+    min-height: 60px;
+    border-radius: 0 0 20px 20px;
+    color:white;
+    border: 3px solid darkblue;
+    border-top: 0;
+    background: rgba(0, 0, 200, 0.8);
+    box-shadow: 0 10px 20px rgba(0, 0, 225, 0.8);
+}
+
+#open-sidebar-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    background: none;
+}
+
+.navbar #toggle-theme-row {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.navbar button {
+    cursor: pointer;
+    border: 3px solid lightblue;
+    background: lightblue;
+    width: 40px;
+    margin-top: 5px;
+}
+
+.navbar button:hover {
+    background: lightskyblue;
+}
+
+#theme-system {
+    border-radius: 20px 0 0 20px;
+}
+
+#theme-dark {
+    border-radius: 0 20px 20px 0;
+}
+
+.navbar .logo {
+    margin-left: 50px;
+}
+
+.navbar .profile-pic {
+    display: none;
+}
+
+
+/* Logo */
+.logo {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.logo #dawn {
+    background-image: url('assets/img/sunset.png');
+    background-size: cover; 
+    background-position:  center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 5px 5px 10px #FF4433;
+}
+
+.logo #fallz {
+    color: cyan;
+    text-shadow: 5px 5px 10px cyan;
+}
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    min-height: 500px;
+    border: 2px solid dodgerblue;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    background: darkblue;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 600;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+    header, main, footer {
+        width: 75vw;
+        margin-left: auto;
+    }
+     #open-sidebar-btn {
+         display: none;
+     }
+
+     #close-sidebar-btn {
+         display: none;
+     }
+
+     .navbar {
+         z-index: 700;
+     }
+
+     .navbar .logo {
+         display: inline-block;
+         font-size: 50px;
+         position: absolute;
+         top: 0;
+         left: 6vw;
+         margin: 0;
+     }
+
+     .navbar .profile-pic {
+         display: inline-block;
+         margin: 5px;
+     }
+
+     .sidebar {
+         transform: translateX(0);
+         width: 25vw;
+         border-radius: 0;
+         padding-top: 8vh;
+     }
+
+     .sidebar.open {
+         transform: translateX(0);
+     }
+
+     .sidebar .logo {
+         display: none;
+         position: absolute;
+         top: 0;
+         left: 0;
+         margin-left: 0;
+     }
+
+     .sidebar hr {
+         display: none;
+     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar {
+        transition: none;
+        transform: none;
+    }
+
+    .sidebar.open {
+        transform: none;
+    }
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    margin: 10px;
+}
+
+@media (max-width: 600px) {
+    .profile-pic {
+        display: none;
+    }
+
+    .sidebar {
+        width: 60%;
+    }
+
+    .sidebar .logo {
+        margin-top: 50px;
+    }
+}
+
+#open-sidebar-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    background: none;
+}
+
+#close-sidebar-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    background: transparent;
+}
+
+
+/* Toggler/Slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 20px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.switch:hover {
+    background: none;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: grey;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input[type="checkbox"]:checked + .slider {
+    background-color: rgba(0, 0, 255, 0.8);;
+}
+
+input[type="checkbox"]:checked + .slider::before {
+    transform: translateX(18px);
+}
+
+
+.no-glow * {
+    box-shadow: none;
+}
+
+
+/* Github Profile button */
+.github-profile-btn {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background:dodgerblue;
+    border: 3px solid darkblue;
+    border-radius: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 225, 0.8);
+}
+
+.github-profile-btn:hover {
+    background: deepskyblue;
+}
+
+
+/* Profile Picture */
+.profile-pic {
+    border: 3px solid dodgerblue;
+    border-radius: 50%;
+}
+
+/* Github Icon */
+.github-icon {
+    border-radius: 50%;
+    background: white;
+}
+
+
+/* Section tag */
+section { 
+    width: 100%;
+    border: 3px solid dodgerblue;
+    border-radius: 10px;
+    background: rgba(0, 0, 200, 0.7);
+    margin-bottom: 20vh;
+    padding: 20px;
+    box-shadow: 10px 15px 15px rgba(0, 0, 225, 0.8);
+    scroll-margin-top: 80px; 
+}
+
+section p {
+    margin: 10px;
+}
+
+section h3 {
+    width: 100%;
+    margin-top: 50px;
+    border: 3px solid dodgerblue;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    background: rgba(0, 0, 200, 0.7);
+    box-shadow: 5px 5px cyan !important;
+}
+
+.list {
+    list-style-type: "- ";
+    width: 100%;
+    border: 3px solid dodgerblue;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    background: rgba(0, 0, 200, 0.7);
+    box-shadow: 5px 5px cyan !important;
+}
+
+em {
+    display: block;
+    border-left: 5px solid dodgerblue;
+    background: rgba(0, 0, 200, 0.7);
+    margin: 10px;
+    padding: 5px;
+}
+
+#about-me button {
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    color: white;
+    border: 1px solid dodgerblue;
+    background: rgba(0, 0, 200, 0.7);
+}
+
+#quote {
+    font-weight: bolder;
+    border: 3px solid dodgerblue;
+    border-left: 10px solid skyblue;
+    background: rgba(0, 0, 200, 0.7);
+    padding: 10px;
+}
+
+.card-text {
+    width: 100%;
+    position: relative;
+    border: 3px solid dodgerblue;
+    border-radius: 20px;
+    background: cornflowerblue;
+    padding: 10px;
+    transform: rotate(3deg);
+    z-index: 0;
+    box-shadow: 5px 5px cyan !important;
+}
+
+#fun-facts div {
+    border-radius: 20px;
+    background: #121212;
+    padding: 30px;
+    margin: 50px 10px;
+    box-shadow: 10px 10px #303030 !important;
+}
+
+#projects {
+    position: relative;
+    overflow: hidden; 
+}
+
+#projects button {
+    position: absolute;
+    bottom: 5px;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.deck {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: white;
+    border: 3px solid dodgerblue;
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+table {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    font-size: 14px;
+    width: 100%;
+    border: 3px solid dodgerblue;
+    border-collapse: collapse;
+    background: darkblue;
+}
+
+td {
+    border: 3px solid dodgerblue;
+    padding: 5px;
+}
+
+#projects button {
+    position: absolute;
+    bottom: 4%;
+    color: dodgerblue;
+    border: none;
+    border-radius: 20px;
+    background: darkblue;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 15px;
+    z-index: 80;
+    cursor: pointer;
+}
+
+/*  Footer */
+footer {
+    width: 100vw;
+    height: 10vh;
+    position: relative;
+    background: #36454F;
+    padding: 10px;
+}

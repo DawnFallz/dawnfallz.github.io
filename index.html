@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Dawnfallz Portfolio">
+    <meta property="og:description" content="A full-stack developer passionate about web development, backend systems, and modern technologies.">
+    <meta property="og:image" content="https://dawnfallz.github.io/assets/img/icon.png">
+    <meta property="og:url" content="https://dawnfallz.github.io">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dawnfallz.github.io/assets/img/icon.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DawnFallz">
+    <link rel="apple-touch-icon" href="/assets/img/favicon-192x192.png">
+
+    <title>Dawnfallz Portfolio</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <button onclick="openSidebar()" id="open-sidebar-btn" aria-label="Open Sidebar Button">
+            <img src="assets/svg/menu.svg" width="30px" height="30px" />
+        </button>
+
+        <img src="assets/img/favicon.png" alt="Profile Pic" class="profile-pic" width="50px" height="50px" /> 
+        <!-- Make the logo glitch -->
+        <h3 class="logo"><span id="dawn">DAWN</span><span id="fallz">FALLZ</span></h3>
+
+
+        <span id="toggle-theme-row">
+            <button id="theme-system" aria-label="System Theme">
+                <img src="assets/svg/system.svg" />
+            </button>
+            <button id="theme-light" aria-label="Light Theme">
+                <img src="assets/svg/light.svg" />
+            </button>
+            <button id="theme-dark" aria-label="Dark Theme">
+                <img src="assets/svg/dark.svg" />
+            </button>
+        </span>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3 class="logo"><span id="dawn">DAWN</span><span id="fallz">FALLZ</span></h3>
+
+        <button onclick="closeSidebar()" id="close-sidebar-btn"> ✕ </button>
+
+        <hr />
+
+        <a href="#hero">Home</a>
+        <a href="#about-me">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#how-did-i-learn-coding">More</a>
+        <a href="#fun-facts">Fun Facts</a>
+        <a href="#contact">Contact</a>
+
+        <span style="position: absolute; bottom: 20px;">
+            <label class="switch">
+                <input type="checkbox" id="toggle-glow-effect-btn" checked/>
+                <span class="slider"></span>
+            </label>
+            <span>Glow Effect</span>
+        </span>
+    </div>
+
+
+    <!-- ### HEADER ### -->
+    <header>
+        <h1>Hello there 👋</h1>
+    </header>
+
+    <!-- ### MAIN ### -->
+    <main>
+        <!-- Hero -->
+        <section id="hero">
+            <h2>I'm DawnFallz</h2>
+            <hr />
+            <img src="assets/img/favicon.png" alt="Profile Pic" class="profile-pic" width="300px" height="300px" style="display: block; margin: 10px auto 30px"/>
+            <ul>
+                <li>Building full stack apps</li>
+                <li>Learning more backend stuff</li>
+                <li>Exploring JavaScript frameworks</li>
+            </ul>
+
+	    <p>Welcome to my personal portfolio! This website showcases my projects, technical skills, and experience as a developer.</p>
+            <a href="https://github.com/DawnFallz" target="_blank"><button class="github-profile-btn">My Github Profile</button></a>
+        </section>
+
+        <!-- About Me-->
+        <section id="about-me">
+            <h2>About Me</h2>
+            <hr />
+            <p><b>Who am I?</b> I'm <i>DawnFallz</i>. I'm a male. I'm now <span id="age"></span> years old. I'm a self-taught full-stack developer passionate about web development, backend systems, and modern technologies.</p><br />
+
+            <p><strong>Why did I start coding?</strong> I was just a regular person browsing the web when one question kept coming to mind: <em>"How are these websites made? How do they work? What really are they?" </em>And that curiosity made me unknowingly stepped into the world of tech and learned languages like Python, JavaScript and eventually, full-stack development. It was fun and exciting. Since then, I've enjoyed building things and learning how software works behind the scenes.</p><br />
+
+            <p><strong>What do I enjoy building?</strong> I enjoy creating full-stack web applications where I can work on both the frontend and backend. I like designing user interfaces, building APIs, working with databases and turning ideas into real, functional websites (even though I love designing user interfaces more).</p><br />
+
+            <div style="margin: 10px;">
+              <h4>Quotes: </h4>
+              <p id="quote"></p>
+              <button onclick="randomQuote()">Another one!</button>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <hr />
+            <h3 style="margin: 0;">🌐 Languages</h3>
+            <ul class="list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Python</li>
+                <li>Golang</li>
+                <li>Java</li>
+            </ul>
+
+            <h3>🧩 Frameworks & Libraries</h3>
+            <ul class="list">
+                <li>JavaScript:
+                    <ul>
+                        <li>React.js</li>
+                        <li>Next.js</li>
+                        <li>Express.js</li>
+                        <li>Discord.js</li>
+                    </ul>
+                </li><br />
+
+                <li>CSS:
+                    <ul>
+                        <li>TailwindCSS</li>
+                        <li>Bootstrap</li>
+                        <li>DaisyUI</li>
+                    </ul>
+                </li><br />
+
+                <li>Python:
+                    <ul>
+                        <li>Flask.py</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🗄️Databases</h3>
+            <ul class="list">
+                <li>PostgreSQL</li>
+                <li>SQLite</li>
+            </ul>
+
+            <h3>🔧 ORM & Tools</h3>
+            <ul class="list">
+                <li>Prisma</li>
+                <li>Drizzle</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <hr />
+            <div class="deck">
+            </div>
+
+            <button onclick="previousCard()" style="left: 50px;" >◀</button>
+            <button onclick="nextCard()" style="right: 50px;">▶</button>
+        </section>
+
+        <section id="how-did-i-learn-coding">
+            <h2>How did I learn coding?</h2>
+            <hr />
+            <p>I’ve been learning programming through online resources like: <p>
+                <ul>
+                    <li>SoloLearn</li>
+                    <li>freeCodeCamp</li>
+                    <li>YouTube tutorials</li>
+                </ul><br />
+
+                <div class="card-text">
+                    <p>During the process, I faced many bugs and challenges that often <i>slowed me down and tested my patience</i>. </p>
+                    <p>There were moments when things didn’t work no matter how many times I tried, and I had to step back, rethink my approach, and try again from a different angle. </p>
+                    <p>But I <b>kept going</b>. <b>I didn’t give up</b>, even when progress felt <i>slow or unclear</i>. Over time, those struggles didn’t just help me solve problems, they helped me <b>grow as a developer and shaped the way I approach coding today</b>.</p>
+                </div>
+
+        </section>
+
+        <section id="fun-facts">
+            <h2>Fun Facts</h2>
+            <hr />
+
+            <div style="transform: rotate(3deg); background: #F7DF1E; box-shadow: 10px 10px #E3C60A !important; color: #121212;">
+                <p>My favoirite language is... <b style="font-size: 30px;">JavaScript!</b></p>
+            </div>
+
+            <div style="transform: rotate(-3deg); background: black; ">
+                <p>My favoirite framework is... <b style="font-size: 30px;">Next.js</b></p>
+            </div>
+
+            <div style="transform: rotate(3deg); background: #964B00; box-shadow: 10px 10px #654321 !important;">
+                <p>☕ Coffee or 🍵 tea?</p>
+                <p><b style="font-size: 30px; color: #654321;">Coffee</b>, of course!</p>
+            </div>
+
+            <div style="transform: rotate(-3deg); background: white; box-shadow: 10px 10px whitesmoke !important; color: black;">
+                <p>My browser usually has too many <b style="font-size: 30px;">tabs</b> open.</p>
+            </div>
+
+            <div style="transform: rotate(3deg);">
+                <p>I prefer <b style="color: #707070; font-size: 30px;">dark mode</b> in literally everything!</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <hr />
+            <img src="assets/svg/github.svg" alt="Github Icon" class="github-icon" width="20px" height="20px" />
+            <span>GitHub: </span>
+            <a href="https://github.com/DawnFallz" target="_blank">https://github.com/DawnFallz</a>
+        </section>
+
+    </main>
+
+    <!-- ### FOOTER ###-->
+    <footer>
+        <a href="https://github.com/Dawnfallz" target="_blank">
+            <img src="assets/svg/github.svg" alt="Github Icon" class="github-icon" width="30px" height="30px" />
+        </a>
+        <small style="position: absolute; right: 15px;">Built with HTML, CSS, JS</small>
+        <p style="position: absolute; right: 15px; bottom: 10px;">&copy; DawnFallz</p>
+    </footer>
+        
+
+    <script src="script.js"></script>
+</body>
+</html>
