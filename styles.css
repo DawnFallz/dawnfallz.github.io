@@ -187,57 +187,57 @@ button:focus-visible {
 
 @media (min-width: 1024px) {
     header, main, footer {
-        width: 75vw;
+        width: 75vw !important;
         margin-left: auto;
     }
-     #open-sidebar-btn {
-         display: none;
-     }
+    #open-sidebar-btn {
+        transform: scale(0);
+    }
 
-     #close-sidebar-btn {
-         display: none;
-     }
+    #close-sidebar-btn {
+        display: none;
+    }
 
-     .navbar {
-         z-index: 700;
-     }
+    .navbar {
+        z-index: 700;
+    }
 
-     .navbar .logo {
-         display: inline-block;
-         font-size: 50px;
-         position: absolute;
-         top: 0;
-         left: 6vw;
-         margin: 0;
-     }
+    .navbar .logo {
+        display: inline-block;
+        font-size: 50px;
+        position: absolute;
+        top: 0;
+        left: 6vw;
+        margin: 0;
+    }
 
-     .navbar .profile-pic {
-         display: inline-block;
-         margin: 5px;
-     }
+    .navbar .profile-pic {
+        display: inline-block;
+        margin: 5px;
+    }
 
-     .sidebar {
-         transform: translateX(0);
-         width: 25vw;
-         border-radius: 0;
-         padding-top: 8vh;
-     }
+    .sidebar {
+        transform: translateX(0);
+        width: 25vw;
+        border-radius: 0;
+        padding-top: 8vh;
+    }
 
-     .sidebar.open {
-         transform: translateX(0);
-     }
+    .sidebar.open {
+        transform: translateX(0);
+    }
 
-     .sidebar .logo {
-         display: none;
-         position: absolute;
-         top: 0;
-         left: 0;
-         margin-left: 0;
-     }
+    .sidebar .logo {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+    }
 
-     .sidebar hr {
-         display: none;
-     }
+    .sidebar hr {
+        display: none;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -456,6 +456,7 @@ em {
     border-radius: 20px;
     background: cornflowerblue;
     padding: 10px;
+    margin: 20px 0;
     transform: rotate(3deg);
     z-index: 0;
     box-shadow: 5px 5px cyan !important;
