@@ -422,6 +422,11 @@ section h3 {
     padding: 20px;
     background: rgba(0, 0, 200, 0.7);
     box-shadow: 5px 5px cyan !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.list:hover {
+    transform: translate(3px, 5px);
 }
 
 em {
@@ -458,8 +463,13 @@ em {
     padding: 10px;
     margin: 20px 0;
     transform: rotate(3deg);
+    transition: transform 0.3s ease-in-out; 
     z-index: 0;
     box-shadow: 5px 5px cyan !important;
+}
+
+.card-text:hover {
+    transform: rotate(-1deg) scale(1.2) translate(3px, -3px);
 }
 
 #fun-facts div {
@@ -467,7 +477,24 @@ em {
     background: #121212;
     padding: 30px;
     margin: 50px 10px;
+    transition: transform 0.3s ease-in-out; 
     box-shadow: 10px 10px #303030 !important;
+}
+
+#fun-facts div:nth-child(odd) {
+    transform: rotate(3deg);
+}
+
+#fun-facts div:nth-child(even) {
+    transform: rotate(-3deg);
+}
+
+#fun-facts b {
+    font-size: 30px;
+}
+
+#fun-facts div:hover {
+    transform: rotate(0deg) scale(1.2) translate(3px, -3px);
 }
 
 #projects {
