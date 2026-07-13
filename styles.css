@@ -5,11 +5,13 @@
 
 :root {
     --bg-color: #ffffff;
+    --text-color: #121212;
     --card-font-size: auto;
 }
 
 :root[data-theme="dark"] {
     --bg-color: #121212;
+    --text-color: #ffffff;
 }
 
 
@@ -28,30 +30,116 @@
 
 body {
     background: var(--bg-color);
-    color: white;
-    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-family: 'Roboto Slab', sans-serif;
+    overflow-x: hidden;
     transition: background-color 0.3s ease;
     padding-top: max(10vh, 80px);
 }
 
 header, main {
     padding: 20px;
+    overflow: hidden;
+}
+
+#hero {
+    color: var(--text-color);
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero .profile-pic {
+    animation: roll 2s ease-in-out both;
+}
+
+@keyframes roll {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+#outerScrollWordList {
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+#scrollWordList { 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.8s ease-in-out;
+}
+
+.scrollWord {
+    height: 50px;
+    line-height: 50px; 
+}
+
+.hero-btn {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Geist Mono', 'Lora';
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background:dodgerblue;
+    border: 3px solid darkblue;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 225, 0.8);
+}
+
+.hero-btn:hover {
+    background: deepskyblue;
+}
+
+.hero-btn img {
+    margin: 10px;
+}
+
+@media (min-width: 750px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    #hero ul {
+        margin-bottom: 0 !important;
+    }
+
+    #outerScrollWordList {
+        height: 70px;
+    }
+
+    .scrollWord {
+        height: 70px;
+        line-height: 70px;
+    }
 }
 
 h1 {
-    text-align: center;
-    border: 5px solid navy;
-    border-radius: 20px;
-    background: cornflowerblue;
-    padding: 18px;
+    font-family: 'Geist Pixel', 'Lora', 'Arial';
+    width: 100%;
+    color: var(--text-color);
+    margin-bottom: 80px;
     text-shadow: 0 5px 5px rgb(0, 60, 150);
-    box-shadow: 5px 10px 20px rgb(0, 0, 225);
 }
 
 h2 {
     color: dodgerblue;
-    text-align: center;
-    text-shadow: 3px 3px 5px dodgerblue;
+    font-family: 'Montenegrin Gothic One', sans-serif;
+    text-shadow: 1px 1px 5px dodgerblue;
 }
 
 hr {
@@ -81,9 +169,9 @@ button:focus-visible {
 .navbar {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 500;
-    width: 100%;
+    width: 100vw;
     height: 5vh;
     min-height: 60px;
     border-radius: 0 0 20px 20px;
@@ -144,6 +232,7 @@ button:focus-visible {
 /* Logo */
 .logo {
     margin: 10px;
+    font-family: 'Arial', sans-serif;
     font-size: 30px;
 }
 
@@ -356,7 +445,7 @@ input[type="checkbox"]:checked + .slider::before {
 /* Github Profile button */
 .github-profile-btn {
     width: 100%;
-    height: 50px;
+    height: auto;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -373,12 +462,17 @@ input[type="checkbox"]:checked + .slider::before {
     background: deepskyblue;
 }
 
+.github-profile-btn img {
+    margin: 10px;
+}
+
 
 /* Profile Picture */
 .profile-pic {
     border: 3px solid dodgerblue;
     border-radius: 50%;
 }
+
 
 /* Github Icon */
 .github-icon {
@@ -422,11 +516,6 @@ section h3 {
     padding: 20px;
     background: rgba(0, 0, 200, 0.7);
     box-shadow: 5px 5px cyan !important;
-    transition: transform 0.3s ease-in-out;
-}
-
-.list:hover {
-    transform: translate(3px, 5px);
 }
 
 em {
@@ -435,6 +524,12 @@ em {
     background: rgba(0, 0, 200, 0.7);
     margin: 10px;
     padding: 5px;
+}
+
+
+/* About me */
+#about-me {
+    margin-top: 20vh;
 }
 
 #about-me button {
@@ -454,24 +549,119 @@ em {
     padding: 10px;
 }
 
-.card-text {
-    width: 100%;
-    position: relative;
+
+/* Main Skills */
+#main-skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#main-skills svg {
+    width: 50px;
+    height: 50px;
+}
+
+#main-skills div {
     border: 3px solid dodgerblue;
-    border-radius: 20px;
-    background: cornflowerblue;
+    background: #CCCCCC;
+    color: #121212;
+    text-align: center;
+    margin: 5px;
     padding: 10px;
-    margin: 20px 0;
-    transform: rotate(3deg);
-    transition: transform 0.3s ease-in-out; 
-    z-index: 0;
-    box-shadow: 5px 5px cyan !important;
+    width: 45%;
+    height: 45%;
+    min-width: 110px;
+    min-height: 110px;
+    transition: background 0.3s ease-in, transform 0.5s ease-in-out, box-shadow 0.5s ease-in;
 }
 
-.card-text:hover {
-    transform: rotate(-1deg) scale(1.2) translate(3px, -3px);
+#main-skills div:hover {
+    background: grey;
+    transform: translate(5px, -5px);
+    box-shadow: -5px 5px dodgerblue !important;
 }
 
+
+/* Learning Journey */
+#learning-journey div {
+    position: relative;
+    padding-left: 50px;
+}
+
+#learning-journey div::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(blue, purple);
+    border-radius: 3px;
+}
+
+#learning-journey h4 {
+    font-family: 'Geist Pixel', 'Lora', 'Arial';
+    position: relative;
+    background: rgba(0, 0, 200, 0.8);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 40px 0 10px;
+}
+
+#learning-journey h4::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: white;
+    border: 5px solid dodgerblue;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#learning-journey ul {
+    margin: 10px;
+}
+
+
+/* Stats */
+#stats {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+#stats h4 {
+    border-bottom: 3px solid dodgerblue;
+    background: skyblue;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+#stats div {
+    border: 3px solid dodgerblue;
+    width: 44%;
+    margin: 20px;
+    transition: background 0.3s ease-in, transform 0.5s ease-in-out, box-shadow 0.5s ease-in;
+}
+
+#stats div:hover {
+    background: deepskyblue;
+    transform: translate(5px, -5px);                                   box-shadow: -5px 5px dodgerblue !important;
+}
+
+@media screen and (max-width: 500px) {
+   #stats div {
+       width: 100%;
+   } 
+}
+
+
+/* Fun Facts */
 #fun-facts div {
     border-radius: 20px;
     background: #121212;
@@ -497,6 +687,7 @@ em {
     transform: rotate(0deg) scale(1.2) translate(3px, -3px);
 }
 
+/* Projects */
 #projects {
     position: relative;
     overflow: hidden; 
@@ -561,11 +752,120 @@ td {
     cursor: pointer;
 }
 
+
+/* Discord Link */
+#discord-link {
+    border: 3px solid dodgerblue;
+    border-radius: 20px;
+    color: black;
+    background: lightskyblue;
+    margin: 10px;
+    padding: 10px;
+}
+
+#discord-link span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 3px solid dodgerblue;
+}
+
+#discord-link h2 {
+    color: midnightblue;
+    margin-left: 10px;
+}
+
+#discord-link p {
+    margin: 20px;
+}
+
+#discord-link button {
+    border: 3px solid midnightblue;
+    border-radius: 20px;
+    font-weight: bold;
+    background: dodgerblue;
+    width: 100%;
+    height: 50px;
+}
+
+
+/* Socials */
+#socials div {
+    display: block;
+    margin: 8px;
+}
+
+#socials a {
+    color: ghostwhite;
+    font-size: 20px; 
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
+
+/* Contact Me */
+#contact-me form {
+    border: 3px solid dodgerblue;
+    border-radius: 20px;
+    background: blue;
+    width: 100%;
+    padding: 10px;
+}
+
+#contact-me label {
+    margin-top: 100px;
+}
+
+#contact-me input, #contact-me textarea {
+    border: 2px solid dodgerblue;
+    border-radius: 20px;
+    background: cornflowerblue;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+
+#contact-me input:focus, #contact-me textarea:focus {
+    background: deepskyblue;
+}
+
+#contact-me textarea {
+    display: block;
+    width: 100%;
+    height: 150px;
+    min-height: 10lh;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+#contact-me input[type="submit"] {
+    font-family: 'Lora', 'Arial';
+    font-size: 15px;
+    width: 100%;
+    padding: 5px;
+}
+
+#contact-me input[type="submit"]:hover {
+    background: deepskyblue;
+}
+
+
 /*  Footer */
 footer {
     width: 100vw;
-    height: 10vh;
-    position: relative;
-    background: #36454F;
+    text-align: center;
     padding: 10px;
+}
+
+footer p {
+    display: block;
+    margin: 30px;
+    color: var(--text-color);
+}
+
+footer a {
+    color: transparent;
+    margin: 10px;
 }

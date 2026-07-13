@@ -32,6 +32,7 @@ This portfolio was built to highlight my work, share what I'm learning, and prov
 ├── index.html
 ├── styles.css
 ├── script.js
+├── success.html
 ├── manifest.json
 ├── service-worker.js
 └── assets/
@@ -45,6 +46,8 @@ This portfolio was built to highlight my work, share what I'm learning, and prov
         ├── light.svg
         ├── dark.svg
         ├── menu.svg
+	├── discord.svg
+	├── x.svg
         └── github.svg
 ```
 

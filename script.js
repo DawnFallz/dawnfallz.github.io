@@ -10,6 +10,11 @@ let cards = [];
 
 const sidebar = document.querySelector(".sidebar");
 
+const counters = document.querySelectorAll(".counter");
+
+const wordList = ["💡 Ideas", "⭐ Dreams", "🎨 Designs", "🧠 Thoughts", "🌱 Possibilities"];
+const scrollWordList = document.getElementById("scrollWordList");
+
 const quotes =  [
   "Every website starts with a single idea.",
   "Curiosity is what turned me from a user into a developer.",
@@ -28,19 +33,82 @@ const quotes =  [
   "Create something today that didn't exist yesterday."
 ];
 
+const message = document.getElementById("message");
+const charCount = document.getElementById('charCount');
+
 const toggleGlowEffectBtn = document.getElementById("toggle-glow-effect-btn");
 
 const savedTheme = localStorage.getItem("theme") || "system";
 
 
+// AOS initialisation
+AOS.init({
+    duration: 1000,
+    once: false
+});
+
+
 // Service Worker for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js', { updateViaCache: 'none' })
-            .then((registration) => console.log('Service Worker registered: ', registration.scope))
-            .catch((registrationError) => console.log('Service Worker registration failed: ', registrationError));
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js", { updateViaCache: "none" })
+            .then((registration) => console.log("Service Worker registered: ", registration.scope))
+            .catch((registrationError) => console.log("Service Worker registration failed: ", registrationError));
     });
 }
+
+
+// Counting animation
+function animateCounter(counter) {
+    const target = +counter.getAttribute("data-target");
+    let current = 0;
+    const speed = 30;
+    const delay = 1000;
+
+    const update = () => {
+        const remaining = target - current;
+        const increment = remaining / speed;
+
+        if (remaining > 0.1) {
+            current += increment;
+            counter.innerText = Math.floor(current);
+            requestAnimationFrame(update);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    setTimeout(update, delay); 
+};
+
+const observerForCounter = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => observerForCounter.observe(counter));
+
+
+// Scrolling words
+wordList.forEach(word => {
+    const div = document.createElement("div");
+    div.className = "scrollWord";
+    div.textContent = word;
+    scrollWordList.appendChild(div);
+});
+
+let i = 0;
+
+setInterval(() => {
+    i++;
+    if (i >= wordList.length) i = 0;
+    const scrollWordHeight = document.querySelector(".scrollWord").offsetHeight;
+    scrollWordList.style.transform = `translateY(-${i * scrollWordHeight}px)`;
+}, 2000);
 
 // Quotes
 function randomQuote() {
@@ -233,4 +301,15 @@ const previousCard = cooldown(function () {
     updateCards();
     isPrevious = false;
 }, 500);
+
+
+// Contact Me Form
+const maxLength = message.getAttribute("maxlength");
+
+message.addEventListener("input", () => {
+    const currentLength = message.value.length;
+    const remaining = maxLength - currentLength;
+     remaining <= 0 ? charCount.style.color = "red" : charCount.style.color = "#fff";
+    charCount.textContent = `${remaining}`;
+});
 

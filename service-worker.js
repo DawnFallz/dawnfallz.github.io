@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dawnfallz-cache-v1';
+const CACHE_NAME = 'dawnfallz-cache-v2';
 const FILES_TO_CACHE = [
   '/index.html',
   '/styles.css',
@@ -11,7 +11,9 @@ const FILES_TO_CACHE = [
   '/assets/svg/light.svg',
   '/assets/svg/dark.svg',
   '/assets/svg/menu.svg',
-  '/assets/svg/github.svg'
+  '/assets/svg/github.svg',
+  '/assets/svg/x.svg',
+  '/assets/svg/discord.svg'
 ];
 
 
@@ -20,7 +22,7 @@ self.addEventListener('install', (event) => {
 
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(FILE_TO_CACHE);
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 });
