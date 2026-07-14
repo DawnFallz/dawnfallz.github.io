@@ -12,6 +12,8 @@ const sidebar = document.querySelector(".sidebar");
 
 const counters = document.querySelectorAll(".counter");
 
+const copyTexts = document.querySelectorAll(".copy-text");
+
 const wordList = ["💡 Ideas", "⭐ Dreams", "🎨 Designs", "🧠 Thoughts", "🌱 Possibilities"];
 const scrollWordList = document.getElementById("scrollWordList");
 
@@ -110,6 +112,7 @@ setInterval(() => {
     scrollWordList.style.transform = `translateY(-${i * scrollWordHeight}px)`;
 }, 2000);
 
+
 // Quotes
 function randomQuote() {
     const quote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -117,6 +120,14 @@ function randomQuote() {
 }
 
 randomQuote();
+
+
+// Copy text 
+copyTexts.forEach(copyText => {
+    copyText.addEventListener("click", () => {
+        navigator.clipboard.writeText(copyText.textContent);
+    });
+});
 
 
 // LOADS GITHUB REPO
