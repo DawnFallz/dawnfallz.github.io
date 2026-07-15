@@ -47,7 +47,6 @@ This portfolio was built to highlight my work, share what I'm learning, and prov
         ├── dark.svg
         ├── menu.svg
 	├── discord.svg
-	├── x.svg
         └── github.svg
 ```
 
