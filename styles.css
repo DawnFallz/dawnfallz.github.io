@@ -51,18 +51,7 @@ header, main {
 }
 
 #hero .profile-pic {
-    animation: roll 2s ease-in-out both;
-}
-
-@keyframes roll {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) rotate(360deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
+    animation: roll 2s ease-in-out both, box-shadow-spin 3s ease-in-out infinite;
 }
 
 #outerScrollWordList {
@@ -480,6 +469,7 @@ input[type="checkbox"]:checked + .slider::before {
 .profile-pic {
     border: 3px solid dodgerblue;
     border-radius: 50%;
+    animation: box-shadow-spin 2s ease-in-out infinite;
 }
 
 
@@ -510,7 +500,7 @@ section {
     background: linear-gradient(rgba(0, 0, 200, 0.7), purple);
     margin-bottom: 20vh;
     padding: 20px;
-    box-shadow: 10px 15px 15px rgba(0, 0, 225, 0.8);
+    animation: box-shadow-spin 3s ease-in-out infinite;
 }
 
 section p {
@@ -862,4 +852,35 @@ footer p {
 footer a {
     color: transparent;
     margin: 10px;
+}
+
+
+/* Animations */
+@keyframes roll {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes box-shadow-spin {
+    0% {
+        box-shadow: 0 -15px 15px rgba(0, 0, 225, 0.8);
+    }
+    25% {
+        box-shadow: 15px 0 15px rgba(0, 0, 225, 0.8);
+    }
+    50% {
+        box-shadow: 0 15px 15px rgba(0, 0, 225, 0.8);
+    }
+    75% {
+        box-shadow: -15px 0 15px rgba(0, 0, 225, 0.8);
+    }
+    100% {
+        box-shadow: 0 -15px 15px rgba(0, 0, 225, 0.8);
+    }
 }
