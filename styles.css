@@ -129,7 +129,7 @@ header, main {
 }
 
 h1 {
-    font-family: 'Geist Pixel', 'Lora', 'Arial';
+    font-family: 'Geist Pixel', 'Arial';
     width: 100%;
     color: var(--text-color);
     margin-bottom: 80px;
@@ -493,6 +493,13 @@ input[type="checkbox"]:checked + .slider::before {
 /* Anchors */
 .anchor {
     scroll-margin-top: 80px;
+}
+
+/* Small tag */
+small {
+    color: gray;
+    font-family: 'Lora', 'Arial';
+    margin: 5px;
 }
 
 
