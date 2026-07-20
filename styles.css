@@ -644,6 +644,7 @@ em {
 
 #stats h4 {
     border-bottom: 3px solid dodgerblue;
+    border-radius: 12px 12px 0 0;
     background: skyblue;
     color: var(--text-color);
     font-size: 20px;
@@ -651,6 +652,7 @@ em {
 
 #stats div {
     border: 3px solid dodgerblue;
+    border-radius: 15px;
     width: 44%;
     margin: 20px;
     transition: background 0.3s ease-in, transform 0.5s ease-in-out, box-shadow 0.5s ease-in;
