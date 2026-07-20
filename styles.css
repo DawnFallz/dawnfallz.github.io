@@ -580,6 +580,7 @@ em {
 
 #main-skills div {
     border: 3px solid dodgerblue;
+    border-radius: 20px;
     background: #CCCCCC;
     color: #121212;
     text-align: center;
@@ -589,7 +590,7 @@ em {
     height: 45%;
     min-width: 110px;
     min-height: 110px;
-    transition: background 0.3s ease-in, transform 0.5s ease-in-out, box-shadow 0.5s ease-in;
+    transition: background 0.5s ease-in, transform 0.5s ease-in-out, box-shadow 0.5s ease-in;
 }
 
 #main-skills div:hover {
