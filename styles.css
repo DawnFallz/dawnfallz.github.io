@@ -202,22 +202,21 @@ button:focus-visible {
 
 .navbar button {
     cursor: pointer;
-    border: 3px solid lightblue;
-    background: lightblue;
+    border: 1px solid lightblue;
+    background: linear-gradient(to right, purple, blue, purple);
+    transition: background 3s ease;
     width: 40px;
     margin-top: 5px;
 }
 
-.navbar button:hover {
-    background: lightskyblue;
-}
-
 #theme-system {
     border-radius: 20px 0 0 20px;
+    background: linear-gradient(to right, blue, purple);
 }
 
 #theme-dark {
     border-radius: 0 20px 20px 0;
+    background: linear-gradient(to left, blue, purple);
 }
 
 .navbar .logo {
@@ -508,7 +507,7 @@ section {
     width: 100%;
     border: 3px solid dodgerblue;
     border-radius: 10px;
-    background: rgba(0, 0, 200, 0.7);
+    background: linear-gradient(rgba(0, 0, 200, 0.7), purple);
     margin-bottom: 20vh;
     padding: 20px;
     box-shadow: 10px 15px 15px rgba(0, 0, 225, 0.8);
