@@ -490,6 +490,11 @@ input[type="checkbox"]:checked + .slider::before {
     background: white;
 }
 
+/* Anchors */
+.anchor {
+    scroll-margin-top: 80px;
+}
+
 
 /* Section tag */
 section { 
@@ -500,7 +505,6 @@ section {
     margin-bottom: 20vh;
     padding: 20px;
     box-shadow: 10px 15px 15px rgba(0, 0, 225, 0.8);
-    scroll-margin-top: 80px; 
 }
 
 section p {
@@ -538,10 +542,6 @@ em {
 
 
 /* About me */
-#about-me {
-    margin-top: 20vh;
-}
-
 #about-me button {
     width: 100%;
     height: 30px;
