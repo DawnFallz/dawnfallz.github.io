@@ -14,7 +14,7 @@ const counters = document.querySelectorAll(".counter");
 
 const copyTexts = document.querySelectorAll(".copy-text");
 
-const wordList = ["💡 Ideas", "⭐ Dreams", "🎨 Designs", "🧠 Thoughts", "🌱 Possibilities"];
+const wordList = ["💡 Ideas", "⭐ Dreams", "📝 Plans", "🎨 Designs", "🧠 Thoughts"];
 const scrollWordList = document.getElementById("scrollWordList");
 
 const quotes =  [
