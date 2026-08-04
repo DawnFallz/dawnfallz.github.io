@@ -42,6 +42,8 @@ header, main {
     overflow: hidden;
 }
 
+
+/* Hero */
 #hero {
     color: var(--text-color);
     display: flex;
@@ -57,6 +59,7 @@ header, main {
 #outerScrollWordList {
     display: inline-block;
     height: 50px;
+    border-bottom: 2px solid rgb(0, 60, 150);
     overflow: hidden;
     vertical-align: middle;
 }
@@ -103,6 +106,10 @@ header, main {
         font-size: 50px;
     }
 
+    h1 .code-bg {
+        font-size: 80px;
+    }
+
     #hero ul {
         margin-bottom: 0 !important;
     }
@@ -117,6 +124,7 @@ header, main {
     }
 }
 
+
 h1 {
     font-family: 'Geist Pixel', 'Arial';
     width: 100%;
@@ -127,7 +135,7 @@ h1 {
     box-shadow: 3px 5px 5px dodgerblue;
     margin-bottom: 80px;
     padding: 15px;
-    text-shadow: 0 5px 5px rgb(0, 60, 150);
+    text-shadow: 0 5px 5px #5c6ac4;
 }
 
 h2 {
@@ -156,6 +164,22 @@ button, a {
 button:focus-visible {
     outline: 2px solid #5c6ac4;
     outline-offset: 2px;
+}
+
+
+/* With Code Text Background */
+.code-bg {
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    background-image: url("assets/img/code.jpg");
+    background-size: contain;
+    background-position:  center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.2px white;
+    text-shadow: none;
 }
 
 
